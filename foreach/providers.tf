@@ -5,6 +5,13 @@ terraform {
       version = "5.17.0"
     }
   }
+
+  backend "s3"{
+    bucket = "robo-bucket-dev"
+    key = "state-file-demo"
+    region = "us-east-1"
+    dynamodb_table = "roboshop-lock"
+  }
 }
 
 provider "aws" {
